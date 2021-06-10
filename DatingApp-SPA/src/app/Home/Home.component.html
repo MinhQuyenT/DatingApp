@@ -1,21 +1,20 @@
 <div class="container mt-5">
-  <div class="form-group" style="text-align: center; border: 1px solid black;padding: 7px;border-radius: 2em;">
-    <h1>
+  <div *ngIf="!registerModel" class="form-group" style="text-align: center; border: 1px solid black;padding: 7px;border-radius: 2em;">
+    <h1 class="head">
       Find Your Match
     </h1>
     <p class="lead">
       Come on in to view your matches...... all you need to do is sign up!
     </p>
     <div class="text-center">
-      <button class="btn btn-primary btn-lg mr-4">Register</button>
+      <button class="btn btn-primary btn-lg mr-4" (click)="registerToggle()">Register</button>
       <button class="btn btn-info btn-lg">Learn more</button>
     </div>
   </div>
-  <app-register></app-register>
-  <div class="container">
+  <div *ngIf="registerModel" class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-
+        <app-register [valuesFromHome]="values" (cancelRegister)="cancleRegisterModel($event)"></app-register>
       </div>
     </div>
   </div>

@@ -4,7 +4,6 @@ import { from } from 'rxjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ValueComponent } from './value/value.component';
 
 import { HttpClientModule } from '@angular/common/http'
 import { _navComponent } from './_nav/_nav.component';
@@ -14,9 +13,8 @@ import { HomeComponent } from './Home/Home.component';
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
-    ValueComponent,
     _navComponent,
     HomeComponent,
       RegisterComponent

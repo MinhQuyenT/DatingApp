@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { from } from 'rxjs';
 
@@ -10,13 +10,17 @@ import { HttpClientModule } from '@angular/common/http'
 import { _navComponent } from './_nav/_nav.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/_core/service/Auth.service';
+import { HomeComponent } from './Home/Home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     ValueComponent,
-    _navComponent
-  ],
+    _navComponent,
+    HomeComponent,
+      RegisterComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +30,7 @@ import { AuthService } from 'src/_core/service/Auth.service';
   providers: [
     AuthService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

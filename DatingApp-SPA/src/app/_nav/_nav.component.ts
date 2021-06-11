@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/_core/service/Auth.service';
+import { CustomNgSnotifyService } from 'src/_core/service/custom-ng-snotify.service';
 
 @Component({
   selector: 'app-_nav',
@@ -13,6 +14,7 @@ export class _navComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private customNgSnotifyService: CustomNgSnotifyService,
   ) { }
 
   ngOnInit() {
@@ -21,8 +23,13 @@ export class _navComponent implements OnInit {
   Login() {
     this.authService.Login(this.model).subscribe(lg => {
       console.log("Logged in successfully")
+      if (lg === null) {
+        this.customNgSnotifyService.warning("Login fail", "Account does not exist");
+      }
+      this.customNgSnotifyService.success("login", "login succes");
+      console.log(this.model)
     }, error => {
-      console.log('Fail to Login')
+      console.log(error);
     })
   }
 
@@ -33,6 +40,7 @@ export class _navComponent implements OnInit {
 
   Logout() {
     localStorage.removeItem('token');
+    this.customNgSnotifyService.warning("Logout", "Logout succes");
     console.log('logged out!')
 
   }

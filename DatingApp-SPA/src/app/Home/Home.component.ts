@@ -17,21 +17,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getvalue();
   }
 
   registerToggle() {
     this.registerModel = true;
-  }
-
-  getvalue() {
-    this.http.get(this.apiUrl + "value").subscribe(res => {
-      console.log(this.values);
-      this.values = res;
-      console.log(res)
-    }, error => {
-      console.log(error)
-    });
   }
 
   cancleRegisterModel(registerModel: boolean) {

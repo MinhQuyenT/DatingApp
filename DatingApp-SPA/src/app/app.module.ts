@@ -11,22 +11,26 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/_core/service/Auth.service';
 import { HomeComponent } from './Home/Home.component';
 import { RegisterComponent } from './register/register.component';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 @NgModule({
   declarations: [
     AppComponent,
     _navComponent,
     HomeComponent,
-      RegisterComponent
-   ],
+    RegisterComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SnotifyModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+    SnotifyService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

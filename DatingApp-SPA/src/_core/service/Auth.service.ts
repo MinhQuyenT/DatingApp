@@ -14,10 +14,14 @@ export class AuthService {
     return this.http.post(this.apiUrl + "Auth/Login", model).pipe(
       map((res: any) => {
         const user = res;
+        console.log(user)
         if (user) {
           localStorage.setItem("token", user.token);
         }
       })
     );
+  }
+  Register(model: any) {
+    return this.http.post(this.apiUrl + "Auth/Register", model)
   }
 }

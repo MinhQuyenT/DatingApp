@@ -1,20 +1,14 @@
 <!--Section: Live preview-->
 <section>
   <!-- Default form register -->
-  <form class="text-center border border-danger p-5" #registerForm ="ngForm" (ngSubmit)="register()">
+  <form class="text-center border border-danger p-5" #registerForm="ngForm" (ngSubmit)="register()">
     <h3 class="mb-4">Register</h3>
     <!-- E-mail -->
-    <input type="text" class="form-control mb-4" required name="username" [(ngModel)]="model.username" placeholder="Username">
-    <div class="form-group">
-      <label for="favouriteValue">What is your favourite Value?</label>
-      <select class="form-control" id="favouriteValue">
-        <option *ngFor="let item of valuesFromHome" [value]="value">
-          {{item.name}}
-        </option>
-      </select>
-    </div>
+    <input type="text" class="form-control mb-4" required name="username" [(ngModel)]="model.username"
+      placeholder="Username">
     <!-- Password -->
-    <input type="password"  class="form-control" required name="password" [(ngModel)]="model.password" placeholder="Password">
+    <input type="password" class="form-control" required name="password" [(ngModel)]="model.password"
+      placeholder="Password">
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
       At least 8 characters and 1 digit
     </small>
